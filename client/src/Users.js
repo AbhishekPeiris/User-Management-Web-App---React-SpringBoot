@@ -1,8 +1,11 @@
 import React from 'react'
+import UserForm from './UserForm'
 
 function Users() {
   return (
-    <div>Users</div>
+    <div className='container'>
+        <UserForm />
+    </div>
   )
 }
 
