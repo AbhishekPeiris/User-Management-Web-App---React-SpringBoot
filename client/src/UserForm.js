@@ -2,7 +2,7 @@ import React from 'react'
 
 function UserForm() {
   return (
-    <div>
+    <div className='container'>
         <form>
             <label>User ID:</label>&nbsp;
             <input type='text' placeholder='Enter User ID' className='input' /><br/><br/>

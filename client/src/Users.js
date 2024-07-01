@@ -1,10 +1,12 @@
 import React from 'react'
 import UserForm from './UserForm'
+import UserTable from './UserTable'
 
 function Users() {
   return (
-    <div className='container'>
+    <div>
         <UserForm />
+        <UserTable />
     </div>
   )
 }
