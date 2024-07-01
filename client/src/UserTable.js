@@ -2,7 +2,19 @@ import React from 'react'
 
 function UserTable() {
   return (
-    <div>UserTable</div>
+    <div className='container'>
+        <div className='row tablerow'>
+            <div className='col-md-3 border tablecolmain'>
+                <strong><p>User ID</p></strong>
+            </div>
+            <div className='col-md-3 border tablecolmain'>
+                <strong><p>User Name</p></strong>
+            </div>
+            <div className='col-md-3 border tablecolmain'>
+                <strong><p>Action</p></strong>
+            </div>
+        </div>
+    </div>
   )
 }
 
