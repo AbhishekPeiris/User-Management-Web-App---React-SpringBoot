@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import UserForm from './UserForm';
 
-function UserTable() {
+function UserTable({onEditUser}) {
 
     const [users, setUsers] = useState([]);
 
@@ -20,6 +21,15 @@ function UserTable() {
         getUsers();
 
     },[])
+
+    async function deleteUser(){
+
+    }
+    
+    async function PassUser(user){
+        onEditUser(user);
+    }
+
   return (
     <div className='container'>
         <div className='row tablerow'>
@@ -38,7 +48,8 @@ function UserTable() {
                 <div className='col-md-3 border tablecol'>{user.id}</div>
                 <div className='col-md-3 border tablecol'>{user.name}</div>
                 <div className='col-md-3 border tablecol'>
-                    <button className='btn btn-danger'>Delete</button>
+                    <button className='btn btn-success' onClick={()=> {PassUser(user)}}>Update</button>&nbsp;&nbsp;
+                    <button className='btn btn-danger' onClick={deleteUser}>Delete</button>
                 </div>
             </div>
         ))}
