@@ -22,8 +22,14 @@ function UserTable({onEditUser}) {
 
     },[])
 
-    async function deleteUser(){
-
+    async function deleteUser(id) {
+        try {
+            await axios.delete(`http://localhost:9090/api/v1/deleteuser?id=${id}`);
+            alert("User deleted successfully");
+            setUsers(users.filter(user => user.id !== id));  // Update the state to reflect the deletion
+        } catch (error) {
+            console.log(error);
+        }
     }
     
     async function PassUser(user){
@@ -49,7 +55,7 @@ function UserTable({onEditUser}) {
                 <div className='col-md-3 border tablecol'>{user.name}</div>
                 <div className='col-md-3 border tablecol'>
                     <button className='btn btn-success' onClick={()=> {PassUser(user)}}>Update</button>&nbsp;&nbsp;
-                    <button className='btn btn-danger' onClick={deleteUser}>Delete</button>
+                    <button className='btn btn-danger' onClick={()=> {deleteUser(user.id)}}>Delete</button>
                 </div>
             </div>
         ))}
