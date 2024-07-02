@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function UserForm() {
+function UserForm({userToUpdate, onUserUpdate}) {
 
   const [id, setId] = useState('');
   const [name, setName] = useState('');
+
+  useEffect(() => {
+
+    if(userToUpdate){
+      setId(userToUpdate.id)
+      setName(userToUpdate.name)
+    }
+
+  },[userToUpdate])
 
   const handleSubmit = async(e) => {
 
